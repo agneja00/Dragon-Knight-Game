@@ -23,6 +23,7 @@ A thrilling turn-based combat game built with pure HTML, CSS, and JavaScript —
 - **HTML5** – Semantic structure.
 - **CSS** – Flexbox, animations, and responsive design.
 - **JavaScript** – Game logic and DOM manipulation.
+- **Vercel** – deployment platform for fast, global hosting and automatic CI/CD integration.
 
 ## Author
 
