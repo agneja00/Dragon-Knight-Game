@@ -5,7 +5,7 @@
 
 .game-title {
   font-size: 4rem;
-  font-weight: bold;
+  font-weight: 800;
   margin: 0;
   padding: 3rem 0;
 }
@@ -24,7 +24,7 @@
 
 .game-character-name {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 800;
   text-align: center;
   padding-right: 1rem;
 }
@@ -50,7 +50,7 @@
   font-size: 1.5rem;
   height: 4rem;
   min-width: 12.5rem;
-  font-weight: bold;
+  font-weight: 800;
   border: 0;
   border-radius: 0rem;
   color: white;
