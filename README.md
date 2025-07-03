@@ -28,6 +28,6 @@ A thrilling turn-based combat game built with pure HTML, CSS, and JavaScript —
 ## Author
 
 - Website - [Agnieska Jackevic] (https://web-portfolio-agneja00.vercel.app/)
-- Linkedin - [Agnieska Jackevic] (https://www.linkedin.com/in/agnieska-jackevic-948830222/)
+- Linkedin - [Agnieska Jackevic] (https://www.linkedin.com/in/agnieska-jackevic/)
 
 ![Screenshot](./assets/images/dragon_killer.png)
