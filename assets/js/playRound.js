@@ -4,7 +4,7 @@ import playerAttack from "./attack.js";
 import playerHeal from "./heal.js";
 import { writeLogToHTML } from "./writeLog.js";
 import dragonAttack from "./dragon.js";
-import checkIfEndOfGame from "./endgame.js";
+import checkIfEndOfGame from "./endGame.js";
 
 export function playRound(type) {
   state.increaseRound();
