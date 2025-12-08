@@ -33,7 +33,7 @@
   max-height: 18.75rem;
 }
 
-.game-character-image > img {
+.game-character-image>img {
   width: 100%;
   height: 18.75rem;
   object-fit: contain;
@@ -46,7 +46,7 @@
   grid-gap: 1rem;
 }
 
-.game-controls > button {
+.game-controls>button {
   font-size: 1.5rem;
   height: 4rem;
   min-width: 12.5rem;
@@ -59,8 +59,21 @@
   cursor: pointer;
 }
 
-.game-controls > p {
+#attack-btn:hover {
+  color: red;
+}
+
+#defend-btn:hover {
+  color: rgb(0, 102, 255);
+}
+
+#heal-btn:hover {
+  color: green;
+}
+
+.game-controls>p {
   text-align: center;
+  margin-top: 0;
 }
 
 .combat-log {
