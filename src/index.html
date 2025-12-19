@@ -10,57 +10,78 @@
   <link rel="icon"
     href="https://toppng.com/uploads/preview/blue-dragon-icon-by-slamiticon-on-deviantart-dragon-game-of-thrones-dragon-11562979422yuzm6u59kf.png" />
   <title>Dragon killer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Black+Ops+One&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="./css/styles.css" />
   <script type="module" src="./js/scripts.js" defer></script>
 </head>
 
 <body>
-  <main class="container">
-    <section>
+  <div class="wrapper">
+    <header>
       <h1 class="game-title">Dragon Killer 3</h1>
-    </section>
+    </header>
+    <main class="container">
+      <div class="game-characters">
+        <section class="game-character-container">
+          <h2 class="game-character-name">Dragon</h2>
+          <span class="dragon-health">200</span>
+        </section>
+        <section class="game-character-container">
+          <h2 class="game-character-name">Knight</h2>
+          <span class="knight-health">100</span>
+        </section>
+      </div>
+  </div>
 
-    <section>
-      <div class="game-view">
-        <div class="game-character">
-          <span class="game-character-name">Dragon</span>
-          <span>Health: <span id="dragon-health">200</span></span>
+  <div class="game-characters-images-container">
+    <div class="game-character-image">
+      <img src="./assets/images/dragon.png" alt="dragon" class="dragon-image" />
+    </div>
+    <div class="game-character-image">
+      <img src="./assets/images/knight.png" alt="knight" class="knight-image" />
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="game-view">
+      <p class="game-action"></p>
+    </div>
+    <div class="game-controls">
+      <button class="attack-btn">Attack</button>
+      <button class="defend-btn">Defend</button>
+      <button class="heal-btn">Heal</button>
+      <button class="play-again-btn">Play again</button>
+    </div>
+    <div class="game-rules-and-logs">
+      <div class="game-rules-and-logs-controls">
+        <div class="rules-and-logs-container">
+          <button class="rules-btn">Rules</button>
+          <div class="rules">
+            <ul class="dragon-rules">
+              <li class="rule">Dragon will attack you every turn! What are you going to do?</li>
+              <li class="rule">Dragon deals 1 - 20 damage every turn.</li>
+              <li class="rule">Dragon has 33% chance of taking no damage from you.</li>
+            </ul>
+            <ul class="knight-rules">
+              <li class="rule">You deal 1 - 10 damage.</li>
+              <li class="rule">You take no damage, your next attack deals double damage.</li>
+              <li class="rule">You regain 1 - 30 health.</li>
+            </ul>
+          </div>
         </div>
-        <div class="game-character">
-          <span class="game-character-name">Knight</span>
-          <span>Health: <span id="knight-health">100</span></span>
-        </div>
-        <div class="game-character-image" id="dragon-image">
-          <img src="./assets/images/dragon.png" alt="dragon" />
-        </div>
-        <div class="game-character-image" id="knight-image">
-          <img src="./assets/images/knight.png" alt="knight" />
+        <div class="rules-and-logs-container">
+          <button class="logs-btn">Logs</button>
+          <ul class="logs">
+          </ul>
         </div>
       </div>
-    </section>
-
-    <section>
-      <div class="game-view">
-        <div class="game-info">
-          <p>Dragon will attack you every turn! What are you going to do?</p>
-          <p>Dragon deals 1 - 20 damage every turn.</p>
-          <p>Dragon has 33% chance of taking no damage from you.</p>
-        </div>
-        <div class="game-controls" id="controls">
-          <button id="attack-btn">Attack</button>
-          <button id="defend-btn">Defend</button>
-          <button id="heal-btn">Heal</button>
-          <p>You deal 1 - 10 damage.</p>
-          <p>You take no damage, your next attack deals double damage.</p>
-          <p>You regain 1 - 30 health.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="game-log" id="game-log"></div>
-    </section>
+    </div>
+  </div>
   </main>
+  </div>
+  </div>
   <footer>
     <p class="footer">
       Copyright &#169; 2025 Agnieska Jackevic. All Rights Reserved.

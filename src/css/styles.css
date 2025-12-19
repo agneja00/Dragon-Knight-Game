@@ -1,94 +1,273 @@
-.container {
-  margin: 0 auto;
-  padding: 0 1.25rem;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: "Cinzel", serif;
+  color: #b0b0b0;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)),
+    url("/src/assets/images/background.jpg") 1% 50% / cover no-repeat fixed;
+}
+
+.wrapper {
+  padding: 0 2rem;
 }
 
 .game-title {
-  font-size: 4rem;
-  font-weight: 800;
-  margin: 0;
-  padding: 3rem 0;
+  text-align: center;
+  padding-top: 2rem;
 }
 
-.game-view {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.8rem;
 }
 
-.game-character,
-.game-character-image {
+.game-character-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
   width: 100%;
-  border-bottom: 1px solid black;
   padding-bottom: 1rem;
 }
 
 .game-character-name {
-  font-size: 1.5rem;
-  font-weight: 800;
-  text-align: center;
-  padding-right: 1rem;
+  font-size: 0.9rem;
 }
 
-.game-character-image {
-  max-height: 18.75rem;
+.dragon-health,
+.knight-health {
+  text-align: end;
+  color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.dragon-health {
+  background: linear-gradient(90deg, #6f1414, #a61f1f);
+}
+
+.knight-health {
+  background: linear-gradient(90deg, #1f3b5c, #2e5f99);
+}
+
+.game-characters-images-container {
+  display: flex;
+  gap: 1rem;
 }
 
 .game-character-image>img {
   width: 100%;
-  height: 18.75rem;
   object-fit: contain;
 }
 
-.game-controls {
-  padding-top: 1rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1rem;
+.knight-image {
+  float: right;
 }
 
-.game-controls>button {
-  font-size: 1.5rem;
-  height: 4rem;
-  min-width: 12.5rem;
-  font-weight: 800;
-  border: 0;
-  border-radius: 0rem;
-  color: white;
+.game-action {
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+.game-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.game-controls>button,
+.rules-and-logs-container>button {
+  font-family: "Black Ops One", sans-serif;
+  padding: 0.7rem;
   border-radius: 0.3rem;
-  background-color: rgb(57, 5, 5);
   cursor: pointer;
 }
 
-#attack-btn:hover {
-  color: red;
+.game-controls>button {
+  color: #ffffff;
+  width: 33%;
+  border: none;
 }
 
-#defend-btn:hover {
-  color: rgb(0, 102, 255);
+.attack-btn {
+  background-color: #8e1b1b;
 }
 
-#heal-btn:hover {
-  color: green;
+.attack-btn:hover {
+  background-color: #b32626;
 }
 
-.game-controls>p {
-  text-align: center;
-  margin-top: 0;
+.defend-btn,
+.play-again-btn {
+  background-color: #274c77;
 }
 
-.combat-log {
-  padding: 0;
-  margin: 0.625rem 0;
+.defend-btn:hover,
+.play-again-btn {
+  background-color: #356aa0;
 }
 
-.combat-log li {
+.heal-btn {
+  background-color: #2f3a40;
+}
+
+.heal-btn:hover {
+  background-color: #3c4a52;
+}
+
+.play-again-btn {
+  display: none;
+}
+
+.game-rules-and-logs-controls {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.rules,
+.logs {
+  display: none;
+}
+
+.rules-and-logs-container {
+  width: 50%;
   display: flex;
   flex-direction: column;
-  gap: 0.18rem;
-  margin-bottom: 1.25rem;
+  gap: 1rem;
+}
+
+.active {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dragon-rules,
+.knight-rules,
+.logs {
+  text-align: justify;
+  color: #e6e6e6;
+  line-height: 1.65rem;
+  background: rgba(10, 14, 12, 0.85);
+  border-radius: 0.75rem;
+  padding: 1.2rem 1.8rem 0.5rem 1.8rem;
+}
+
+.rule,
+.log {
+  font-size: 0.8rem;
+  padding-bottom: 1rem;
+}
+
+.rules-btn,
+.logs-btn {
+  color: #e6e6e6;
+  background-color: #0f1412;
+  border: 1px solid #444b52;
+}
+
+.rules-btn:hover,
+.logs-btn:hover {
+  background-color: #272a29;
+}
+
+.player-and-dragon-log-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.round-title {
+  padding-bottom: 0.2rem;
 }
 
 .footer {
+  font-size: 0.8rem;
   text-align: center;
-  margin-top: 3.5rem;
+  padding: 2rem 2rem 1.5rem 2rem;
+}
+
+@media only screen and (min-width: 515px) {
+  .game-character-image>img {
+    width: 70%;
+  }
+
+  .dragon-rules,
+  .knight-rules,
+  .logs {
+    padding: 1.4rem 2.2rem 0.9rem 2.2rem;
+  }
+}
+
+@media only screen and (min-width: 715px) {
+  .game-characters {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 2rem;
+  }
+
+  .game-action {
+    font-size: 1rem;
+  }
+
+  .dragon-rules,
+  .knight-rules {
+    padding: 1.5rem 2.5rem 1rem 2.5rem;
+  }
+
+  .rule,
+  .log {
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (min-width: 885px) {
+  .game-character-image>img {
+    width: 65%;
+  }
+
+  .player-and-dragon-log-container {
+    gap: 0.5rem;
+  }
+}
+
+@media only screen and (min-width: 935px) {
+  .game-character-image>img {
+    width: 50%;
+  }
+
+  .game-action {
+    font-size: 1.2rem;
+  }
+
+  .rule,
+  .log {
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .game-character-image>img {
+    width: 35%;
+  }
+
+  .rule,
+  .log {
+    font-size: 1rem;
+  }
 }

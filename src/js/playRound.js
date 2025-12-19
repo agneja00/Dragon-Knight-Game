@@ -7,37 +7,43 @@ import dragonAttack from "./dragon.js";
 import checkIfEndOfGame from "./endGame.js";
 
 export function playRound(type) {
+  if (state.gameOver) return;
+
   state.increaseRound();
 
   const log = {
-    playerText: null,
-    dragonText: null,
+    round: state.round,
+    type,
+    playerText: "",
+    dragonText: "",
   };
 
   switch (type) {
-    case roundType.attack:
-      const damage = playerAttack();
-      log.playerText = `Knight attacks and deals ${damage} to the dragon.`;
+    case roundType.attack: {
+      const dmg = playerAttack();
+      log.playerText = `Knight attacks and deals ${dmg} to the dragon.`;
       break;
+    }
 
     case roundType.defend:
-      log.playerText = `Not implemented`;
+      log.playerText = `Knight defends.`;
       break;
 
-    case roundType.heal:
-      const healing = playerHeal();
-      log.playerText = `Knight heals himself and receives ${healing} health.`;
+    case roundType.heal: {
+      const heal = playerHeal();
+      log.playerText = `Knight heals himself and receives ${heal} health.`;
       break;
+    }
   }
 
-  const damage = dragonAttack();
-  {
-    log.dragonText = `Dragon attacks and deals ${damage} to the knight.`;
-
-    writeLogToHTML(log);
-
+  if (!checkIfEndOfGame()) {
+    const dmg = dragonAttack();
+    log.dragonText = `Dragon attacks and deals ${dmg} to the knight.`;
     checkIfEndOfGame();
   }
+
+  state.logs.push(log);
+  writeLogToHTML(log);
 }
 
 export default playRound;
