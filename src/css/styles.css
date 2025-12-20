@@ -13,7 +13,7 @@ body {
   font-family: "Cinzel", serif;
   color: #b0b0b0;
   background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)),
-    url("/src/assets/images/background.jpg") 1% 50% / cover no-repeat fixed;
+    url("../assets/images/background.jpg") 1% 50% / cover no-repeat fixed;
 }
 
 .wrapper {
