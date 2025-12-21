@@ -1,12 +1,17 @@
 import { roundType } from "./constants.js";
 import { state } from "./state.js";
 import playerAttack from "./attack.js";
-import playerHeal from "./heal.js";
-import { writeLogToHTML } from "./writeLog.js";
+import {
+  clearActiveLogLater,
+  writeActiveLog,
+  writeLogToHTML,
+} from "./writeLog.js";
 import dragonAttack from "./dragon.js";
 import checkIfEndOfGame from "./endGame.js";
+import { delay } from "./utils.js";
+import playerHeal from "./heal.js";
 
-export function playRound(type) {
+export async function playRound(type) {
   if (state.gameOver) return;
 
   state.increaseRound();
@@ -36,14 +41,29 @@ export function playRound(type) {
     }
   }
 
-  if (!checkIfEndOfGame()) {
-    const dmg = dragonAttack();
-    log.dragonText = `Dragon attacks and deals ${dmg} to the knight.`;
-    checkIfEndOfGame();
+  state.update();
+  writeActiveLog(log.playerText);
+
+  if (checkIfEndOfGame()) {
+    state.logs.push(log);
+    writeLogToHTML(log);
+    clearActiveLogLater();
+    return;
   }
+
+  await delay(3000);
+
+  const dmg = dragonAttack();
+  log.dragonText = `Dragon attacks and deals ${dmg} to the knight.`;
+
+  state.update();
+  writeActiveLog(log.dragonText);
 
   state.logs.push(log);
   writeLogToHTML(log);
+
+  clearActiveLogLater();
+  checkIfEndOfGame();
 }
 
 export default playRound;

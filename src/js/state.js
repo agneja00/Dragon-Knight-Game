@@ -7,11 +7,10 @@ export const state = {
   logs: [],
   rulesOpen: false,
   logsOpen: false,
-  currentLogTimer: null,
   gameOver: false,
   update() {
-    elements.dragonHealthText.textContent = this.dragonHealth;
     elements.knightHealthText.textContent = this.knightHealth;
+    elements.dragonHealthText.textContent = this.dragonHealth;
   },
   increaseRound() {
     this.round++;
@@ -27,11 +26,6 @@ export const state = {
   },
 
   playAgain() {
-    if (this.currentLogTimer) {
-      clearTimeout(this.currentLogTimer);
-      this.currentLogTimer = null;
-    }
-
     this.round = 0;
     this.dragonHealth = 200;
     this.knightHealth = 100;

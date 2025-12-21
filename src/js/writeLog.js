@@ -1,29 +1,16 @@
 import { elements } from "./elements.js";
-import { state } from "./state.js";
+
+export const writeActiveLog = (text) => {
+  elements.gameLogActiveAction.textContent = text || "";
+};
+
+export const clearActiveLogLater = (ms = 3000) => {
+  setTimeout(() => {
+    elements.gameLogActiveAction.textContent = "";
+  }, ms);
+};
 
 export const writeLogToHTML = (roundLog) => {
-  if (state.currentLogTimer) {
-    clearTimeout(state.currentLogTimer);
-    state.currentLogTimer = null;
-  }
-
-  const roundId = roundLog.round;
-  if (!roundLog.playerText && !roundLog.dragonText) return;
-
-  const showText = async () => {
-    elements.gameLogActiveAction.textContent = roundLog.playerText || "";
-    await new Promise((r) => setTimeout(r, 3000));
-    if (state.round !== roundId) return;
-
-    elements.gameLogActiveAction.textContent = roundLog.dragonText || "";
-    await new Promise((r) => setTimeout(r, 3000));
-    if (state.round !== roundId) return;
-
-    elements.gameLogActiveAction.textContent = "";
-  };
-
-  state.currentLogTimer = showText();
-
   const logItem = document.createElement("li");
   logItem.className = "log";
 
