@@ -1,37 +1,37 @@
 import { elements } from "./elements.js";
-import { roundType } from "./constants.js";
+import { roundType } from "./roundType.js";
 import { state } from "./state.js";
 import playRound from "./playRound.js";
 import checkIfEndOfGame from "./endGame.js";
 import startNewGame from "./startNewGame.js";
 
-elements.attackButton.addEventListener("click", function () {
+elements.buttons.attack.addEventListener("click", function () {
   playRound(roundType.attack);
   checkIfEndOfGame();
 });
 
-elements.defendButton.addEventListener("click", function () {
+elements.buttons.defend.addEventListener("click", function () {
   playRound(roundType.defend);
   checkIfEndOfGame();
 });
 
-elements.healButton.addEventListener("click", function () {
+elements.buttons.heal.addEventListener("click", function () {
   playRound(roundType.heal);
   checkIfEndOfGame();
 });
 
-elements.rulesButton.addEventListener("click", () => {
+elements.buttons.rules.addEventListener("click", () => {
   state.rulesOpen = !state.rulesOpen;
   state.renderRules();
 });
 
-elements.logsButton.addEventListener("click", () => {
+elements.buttons.playAgain.addEventListener("click", () => {
+  startNewGame();
+});
+
+elements.buttons.logs.addEventListener("click", () => {
   if (!state.hasLogs()) return;
 
   state.logsOpen = !state.logsOpen;
   state.renderAllLogs();
-});
-
-elements.playAgainButton.addEventListener("click", () => {
-  startNewGame();
 });

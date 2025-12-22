@@ -8,9 +8,9 @@ export const state = {
   rulesOpen: false,
   logsOpen: false,
   gameOver: false,
-  update() {
-    elements.knightHealthText.textContent = this.knightHealth;
-    elements.dragonHealthText.textContent = this.dragonHealth;
+  updateHealth() {
+    elements.health.dragon.textContent = this.dragonHealth;
+    elements.health.knight.textContent = this.knightHealth;
   },
   increaseRound() {
     this.round++;
@@ -19,13 +19,13 @@ export const state = {
     return this.round > 0 && this.logs.length > 0;
   },
   renderRules() {
-    elements.gameRulesContainer.classList.toggle("active", this.rulesOpen);
+    elements.containers.rules.classList.toggle("active", this.rulesOpen);
   },
   renderAllLogs() {
-    elements.gameLogsContainer.classList.toggle("active", this.logsOpen);
+    elements.containers.logs.classList.toggle("active", this.logsOpen);
   },
 
-  playAgain() {
+  reset() {
     this.round = 0;
     this.dragonHealth = 200;
     this.knightHealth = 100;
@@ -33,8 +33,7 @@ export const state = {
     this.rulesOpen = false;
     this.logsOpen = false;
     this.gameOver = false;
-
-    this.update();
+    this.updateHealth();
     this.renderRules();
     this.renderAllLogs();
   },
