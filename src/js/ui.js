@@ -1,4 +1,5 @@
 import { elements } from "./elements.js";
+import { state } from "./state.js";
 
 export const UI = {
   showControlButtons() {
@@ -23,6 +24,26 @@ export const UI = {
   hideImage(character) {
     if (character === "dragon") elements.images.dragon.style.display = "none";
     if (character === "knight") elements.images.knight.style.display = "none";
+  },
+
+  changeHealth(character, percent) {
+    if (character === "dragon") {
+      elements.health.dragon.style.width = `${percent}%`;
+      if (percent === 0) elements.health.dragon.style.background = "none";
+      if (state.dragonHealth === state.dragonMaxHealth) {
+        elements.health.dragon.style.background =
+          "linear-gradient(linear-gradient(90deg, #6f1414, #a61f1f))";
+      }
+    }
+
+    if (character === "knight") {
+      elements.health.knight.style.width = `${percent}%`;
+      if (percent === 0) elements.health.knight.style.background = "none";
+      if (state.knightHealth === state.knightMaxHealth) {
+        elements.health.knight.style.background =
+          "linear-gradient(90deg, #1f3b5c, #2e5f99)";
+      }
+    }
   },
 
   writeLog(roundLog) {

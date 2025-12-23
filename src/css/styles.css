@@ -56,10 +56,12 @@ body {
 
 .dragon-health {
   background: linear-gradient(90deg, #6f1414, #a61f1f);
+width: 100%;
 }
 
 .knight-health {
   background: linear-gradient(90deg, #1f3b5c, #2e5f99);
+width: 100%;
 }
 
 .game-characters-images-container {
