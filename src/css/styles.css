@@ -49,19 +49,18 @@ body {
 .knight-health {
   text-align: end;
   color: #ffffff;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
   border-radius: 0.5rem;
   margin-bottom: 0.3rem;
+  width: 100%;
 }
 
 .dragon-health {
   background: linear-gradient(90deg, #6f1414, #a61f1f);
-width: 100%;
 }
 
 .knight-health {
   background: linear-gradient(90deg, #1f3b5c, #2e5f99);
-width: 100%;
 }
 
 .game-characters-images-container {
