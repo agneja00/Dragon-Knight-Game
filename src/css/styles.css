@@ -65,12 +65,21 @@ body {
 
 .game-characters-images-container {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
-.game-character-image>img {
+.game-character-image {
+  width: 50%;
+}
+
+.character-image {
   width: 100%;
+  padding-right: 2rem;
   object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .knight-image {
@@ -89,15 +98,15 @@ body {
   gap: 0.5rem;
 }
 
-.game-controls>button,
-.rules-and-logs-container>button {
+.game-controls > button,
+.rules-and-logs-container > button {
   font-family: "Black Ops One", sans-serif;
   padding: 0.7rem;
   border-radius: 0.3rem;
   cursor: pointer;
 }
 
-.game-controls>button {
+.game-controls > button {
   color: #ffffff;
   width: 33%;
   border: none;
@@ -203,7 +212,7 @@ body {
 }
 
 @media only screen and (min-width: 515px) {
-  .game-character-image>img {
+  .character-image {
     width: 70%;
   }
 
@@ -238,7 +247,7 @@ body {
 }
 
 @media only screen and (min-width: 885px) {
-  .game-character-image>img {
+  .character-image {
     width: 65%;
   }
 
@@ -248,7 +257,7 @@ body {
 }
 
 @media only screen and (min-width: 935px) {
-  .game-character-image>img {
+  .character-image {
     width: 50%;
   }
 
@@ -263,8 +272,8 @@ body {
 }
 
 @media only screen and (min-width: 1100px) {
-  .game-character-image>img {
-    width: 35%;
+  .character-image {
+    width: 38%;
   }
 
   .rule,

@@ -1,6 +1,16 @@
 import { elements } from "./elements.js";
 import { state } from "./state.js";
 
+const defaultImages = {
+  knight: "./assets/images/knight.png",
+  dragon: "./assets/images/dragon.png",
+};
+
+const imageTimers = {
+  knight: null,
+  dragon: null,
+};
+
 export const UI = {
   showControlButtons() {
     elements.buttons.attack.style.display = "block";
@@ -17,8 +27,11 @@ export const UI = {
   },
 
   showImages() {
+    elements.images.dragon.src = "./assets/images/dragon.png";
+    elements.images.knight.src = "./assets/images/knight.png";
     elements.images.dragon.style.display = "block";
     elements.images.knight.style.display = "block";
+    elements.images.knight.style.float = "right";
   },
 
   hideImage(character) {
@@ -71,5 +84,29 @@ export const UI = {
 
     logItem.append(roundTitle, roundLogsContainer);
     elements.containers.logs.append(logItem);
+  },
+  changeCharacterImg(character, action, duration = 3000) {
+    const img = elements.images[character];
+    if (!img) return;
+
+    if (imageTimers[character]) {
+      clearTimeout(imageTimers[character]);
+      imageTimers[character] = null;
+    }
+
+    if (character === "knight" && action !== "dead") {
+      img.style.float =
+        action === "attack" || action === "defend" ? "left" : "right";
+    }
+
+    img.src = `./assets/images/${character}_${action}.png`;
+
+    if (action === "dead") return;
+
+    imageTimers[character] = setTimeout(() => {
+      img.src = defaultImages[character];
+      if (character === "knight") img.style.float = "right";
+      imageTimers[character] = null;
+    }, duration);
   },
 };
