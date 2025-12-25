@@ -85,6 +85,7 @@ export const UI = {
     logItem.append(roundTitle, roundLogsContainer);
     elements.containers.logs.append(logItem);
   },
+  
   changeCharacterImg(character, action, duration = 3000) {
     const img = elements.images[character];
     if (!img) return;
