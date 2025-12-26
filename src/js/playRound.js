@@ -27,14 +27,14 @@ export async function playRound(type) {
       const dmg = playerAttack();
       log.playerText = `Knight attacks and deals ${dmg} to the dragon.`;
       UI.changeCharacterImg("knight", "attack");
+      UI.animateKnight("attack");
       break;
     }
-
     case roundType.defend:
       log.playerText = `Knight defends.`;
       UI.changeCharacterImg("knight", "defend");
+      UI.animateKnight("defend");
       break;
-
     case roundType.heal: {
       const heal = playerHeal();
       log.playerText = `Knight heals himself and receives ${heal} health.`;
@@ -43,7 +43,7 @@ export async function playRound(type) {
     }
   }
 
-  state.updateHealth();
+  UI.updateHealth();
   writeActiveLog(log.playerText);
 
   if (checkIfEndOfGame()) {
@@ -59,7 +59,7 @@ export async function playRound(type) {
   log.dragonText = `Dragon attacks and deals ${dmg} to the knight.`;
 
   UI.changeCharacterImg("dragon", "attack");
-  state.updateHealth();
+  UI.updateHealth();
   writeActiveLog(log.dragonText);
 
   if (checkIfEndOfGame()) {
@@ -68,6 +68,10 @@ export async function playRound(type) {
     clearActiveLogLater();
     return;
   }
+
+  state.logs.push(log);
+  UI.writeLog(log);
+  clearActiveLogLater();
 }
 
 export default playRound;

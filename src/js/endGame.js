@@ -3,20 +3,36 @@ import { UI } from "./ui.js";
 
 export function checkIfEndOfGame() {
   if (state.knightHealth <= 0) {
-    UI.changeCharacterImg("knight", "dead", 0);
-    state.gameOver = true;
-    UI.hideControlButtons();
+    endGame("defeat");
     return true;
   }
 
   if (state.dragonHealth <= 0) {
-    UI.changeCharacterImg("dragon", "dead", 0);
-    state.gameOver = true;
-    UI.hideControlButtons();
+    endGame("victory");
     return true;
   }
 
   return false;
+}
+
+function endGame(result) {
+  state.gameOver = true;
+  UI.setGameOverState();
+
+  if (result === "defeat") {
+    UI.showKnightDead();
+  } else {
+    UI.showDragonDead();
+  }
+
+  setTimeout(() => {
+    UI.enterGameOverMode();
+    if (result === "defeat") {
+      UI.showDefeat();
+    } else {
+      UI.showVictory();
+    }
+  }, 4000);
 }
 
 export default checkIfEndOfGame;

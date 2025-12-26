@@ -11,52 +11,188 @@ const imageTimers = {
   dragon: null,
 };
 
+const charactersContainer = document.querySelector(
+  ".game-characters-images-container"
+);
+
+const UI_GROUPS = {
+  controls: [
+    elements.buttons.attack,
+    elements.buttons.defend,
+    elements.buttons.heal,
+  ],
+  playAgain: [elements.buttons.playAgain],
+  health: [elements.containers.charactersHealthContainer],
+  inscription: [elements.images.inscription],
+  images: [elements.images.knight, elements.images.dragon],
+};
+
 export const UI = {
-  showControlButtons() {
-    elements.buttons.attack.style.display = "block";
-    elements.buttons.defend.style.display = "block";
-    elements.buttons.heal.style.display = "block";
-    elements.buttons.playAgain.style.display = "none";
+  setHidden(list, hidden) {
+    list.forEach((el) => el.classList.toggle("hidden", hidden));
   },
 
-  hideControlButtons() {
-    elements.buttons.attack.style.display = "none";
-    elements.buttons.defend.style.display = "none";
-    elements.buttons.heal.style.display = "none";
-    elements.buttons.playAgain.style.display = "block";
+  setPlayingState() {
+    this.setHidden(UI_GROUPS.controls, false);
+    this.setHidden(UI_GROUPS.playAgain, true);
+    this.setHidden(UI_GROUPS.health, false);
+    this.setHidden(UI_GROUPS.inscription, true);
+    this.showCharacter("knight");
+    this.showCharacter("dragon");
+    this.renderAllLogs();
   },
 
-  showImages() {
-    elements.images.dragon.src = "./assets/images/dragon.png";
-    elements.images.knight.src = "./assets/images/knight.png";
-    elements.images.dragon.style.display = "block";
-    elements.images.knight.style.display = "block";
-    elements.images.knight.style.float = "right";
+  setGameOverState() {
+    this.setHidden(UI_GROUPS.controls, true);
+    this.setHidden(UI_GROUPS.playAgain, false);
   },
 
-  hideImage(character) {
-    if (character === "dragon") elements.images.dragon.style.display = "none";
-    if (character === "knight") elements.images.knight.style.display = "none";
+  renderRules() {
+    elements.containers.rules.classList.toggle("active", state.rulesOpen);
   },
 
-  changeHealth(character, percent) {
-    if (character === "dragon") {
-      elements.health.dragon.style.width = `${percent}%`;
-      if (percent === 0) elements.health.dragon.style.background = "none";
-      if (state.dragonHealth === state.dragonMaxHealth) {
-        elements.health.dragon.style.background =
-          "linear-gradient(linear-gradient(90deg, #6f1414, #a61f1f))";
-      }
+  openLogs() {
+    state.logsOpen = true;
+    elements.containers.logs.classList.toggle("active");
+    this.renderAllLogs();
+  },
+
+  closeLogs() {
+    state.logsOpen = false;
+    elements.containers.logs.classList.toggle("active");
+  },
+
+  renderAllLogs() {
+    elements.containers.logs.classList.toggle("active", state.logsOpen);
+  },
+
+  clearLogs() {
+    elements.containers.logs.innerHTML = "";
+  },
+
+  changeHealthBackground(character, percent) {
+    const healthEl =
+      character === "dragon" ? elements.health.dragon : elements.health.knight;
+    healthEl.style.width = `${percent}%`;
+
+    if (percent === 0) {
+      healthEl.style.background = "none";
+    } else if (
+      character === "dragon" &&
+      state.dragonHealth === state.dragonMaxHealth
+    ) {
+      healthEl.style.background = "linear-gradient(90deg, #6f1414, #a61f1f)";
+    } else if (
+      character === "knight" &&
+      state.knightHealth === state.knightMaxHealth
+    ) {
+      healthEl.style.background = "linear-gradient(90deg, #1f3b5c, #2e5f99)";
     }
+  },
 
-    if (character === "knight") {
-      elements.health.knight.style.width = `${percent}%`;
-      if (percent === 0) elements.health.knight.style.background = "none";
-      if (state.knightHealth === state.knightMaxHealth) {
-        elements.health.knight.style.background =
-          "linear-gradient(90deg, #1f3b5c, #2e5f99)";
-      }
-    }
+  updateHealth() {
+    const dragonPercent = (state.dragonHealth / state.dragonMaxHealth) * 100;
+    const knightPercent = (state.knightHealth / state.knightMaxHealth) * 100;
+
+    elements.health.dragon.textContent = state.dragonHealth;
+    elements.health.knight.textContent = state.knightHealth;
+
+    this.changeHealthBackground("dragon", dragonPercent);
+    this.changeHealthBackground("knight", knightPercent);
+  },
+
+  changeCharacterImg(character, action, duration = 3000) {
+    const img = elements.images[character];
+    if (!img) return;
+
+    clearTimeout(imageTimers[character]);
+    img.src = `./assets/images/${character}_${action}.png`;
+
+    if (action === "dead") return;
+
+    imageTimers[character] = setTimeout(() => {
+      img.src = defaultImages[character];
+      imageTimers[character] = null;
+    }, duration);
+  },
+
+  showKnightDead() {
+    this.changeCharacterImg("knight", "dead", 0);
+  },
+
+  showDragonDead() {
+    this.changeCharacterImg("dragon", "dead", 0);
+  },
+
+  hideCharacter(character) {
+    const container = elements.images[character].closest(
+      ".game-character-image"
+    );
+    if (container) container.classList.add("hidden");
+  },
+
+  showCharacter(character) {
+    const img = elements.images[character];
+    const container = img.closest(".game-character-image");
+
+    if (container) container.classList.remove("hidden");
+
+    img.src = defaultImages[character];
+    img.classList.remove("hidden");
+  },
+
+  showVictory() {
+    this.hideCharacter("knight");
+    this.setHidden(UI_GROUPS.health, true);
+    this.setHidden(UI_GROUPS.inscription, false);
+    elements.images.inscription.src = "./assets/images/victory.png";
+  },
+
+  showDefeat() {
+    this.hideCharacter("dragon");
+    this.setHidden(UI_GROUPS.health, true);
+    this.setHidden(UI_GROUPS.inscription, false);
+    elements.images.inscription.src = "./assets/images/defeat.png";
+  },
+
+  hideResult() {
+    this.showCharacter("dragon");
+    this.showCharacter("knight");
+    this.setHidden(UI_GROUPS.inscription, true);
+    this.setHidden(UI_GROUPS.health, false);
+  },
+
+  enterGameOverMode() {
+    elements.containers.charactersImagesContainer.classList.add(
+      "game-over-mode"
+    );
+  },
+
+  exitGameOverMode() {
+    elements.containers.charactersImagesContainer.classList.remove(
+      "game-over-mode"
+    );
+  },
+
+  animateKnight(action) {
+    if (state.gameOver) return;
+
+    const img = elements.images.knight;
+    if (!img) return;
+
+    const classMap = {
+      attack: "knight-attack",
+      defend: "knight-defend",
+    };
+
+    const className = classMap[action];
+    if (!className) return;
+
+    img.classList.add(className);
+
+    setTimeout(() => {
+      img.classList.remove(className);
+    }, 400);
   },
 
   writeLog(roundLog) {
@@ -84,30 +220,5 @@ export const UI = {
 
     logItem.append(roundTitle, roundLogsContainer);
     elements.containers.logs.append(logItem);
-  },
-  
-  changeCharacterImg(character, action, duration = 3000) {
-    const img = elements.images[character];
-    if (!img) return;
-
-    if (imageTimers[character]) {
-      clearTimeout(imageTimers[character]);
-      imageTimers[character] = null;
-    }
-
-    if (character === "knight" && action !== "dead") {
-      img.style.float =
-        action === "attack" || action === "defend" ? "left" : "right";
-    }
-
-    img.src = `./assets/images/${character}_${action}.png`;
-
-    if (action === "dead") return;
-
-    imageTimers[character] = setTimeout(() => {
-      img.src = defaultImages[character];
-      if (character === "knight") img.style.float = "right";
-      imageTimers[character] = null;
-    }, duration);
   },
 };

@@ -3,8 +3,10 @@ import { UI } from "./ui.js";
 
 export function startNewGame() {
   state.reset();
-  UI.showControlButtons();
-  UI.showImages();
+  UI.clearLogs();
+  UI.updateHealth();
+  UI.exitGameOverMode();
+  UI.setPlayingState();
 }
 
 export default startNewGame;

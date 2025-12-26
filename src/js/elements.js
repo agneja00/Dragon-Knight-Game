@@ -12,10 +12,15 @@ export const elements = {
     logs: document.querySelector(".logs-btn"),
   },
   images: {
+    inscription: document.querySelector(".game-over-inscription"),
     dragon: document.querySelector(".dragon-image"),
     knight: document.querySelector(".knight-image"),
   },
   containers: {
+    charactersHealthContainer: document.querySelector(".game-characters"),
+    charactersImagesContainer: document.querySelector(
+      ".game-characters-images-container"
+    ),
     gameAction: document.querySelector(".game-action"),
     rules: document.querySelector(".rules"),
     logs: document.querySelector(".logs"),

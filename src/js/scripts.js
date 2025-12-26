@@ -3,6 +3,7 @@ import { roundType } from "./roundType.js";
 import { state } from "./state.js";
 import playRound from "./playRound.js";
 import startNewGame from "./startNewGame.js";
+import { UI } from "./ui.js";
 
 elements.buttons.attack.addEventListener("click", function () {
   playRound(roundType.attack);
@@ -17,17 +18,18 @@ elements.buttons.heal.addEventListener("click", function () {
 });
 
 elements.buttons.rules.addEventListener("click", () => {
-  state.rulesOpen = !state.rulesOpen;
-  state.renderRules();
+  state.toggleRules();
+  UI.renderRules();
+});
+
+elements.buttons.logs.addEventListener("click", () => {
+  if (state.logsOpen) {
+    UI.closeLogs();
+  } else if (state.hasLogs()) {
+    UI.openLogs();
+  }
 });
 
 elements.buttons.playAgain.addEventListener("click", () => {
   startNewGame();
-});
-
-elements.buttons.logs.addEventListener("click", () => {
-  if (!state.hasLogs()) return;
-
-  state.logsOpen = !state.logsOpen;
-  state.renderAllLogs();
 });
