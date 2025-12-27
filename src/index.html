@@ -6,96 +6,102 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Battle a dragon in this turn-based combat game built with pure HTML, CSS, and JavaScript. Play as a knight using attacks, defense, and healing to survive and win." />
+    content="Battle a dragon in this turn-based combat game built with pure HTML, CSS, and JavaScript." />
   <link rel="icon" href="./assets/images/game_icon.png" />
-  <title>Dragon killer</title>
-  <meta property="og:title" content="Dragon Killer 3" />
-  <meta property="og:type" content="game" />
-  <meta property="og:url" content="https://dragon-knight-game.vercel.app/" />
-  <meta property="og:image" content="./assets/game_desktop.png" />
-  <meta property="og:description"
-    content="Battle a dragon in this turn-based combat game built with pure HTML, CSS, and JavaScript. Play as a knight using attacks, defense, and healing to survive and win." />
-  <meta property="og:site_name" content="Dragon Killer" />
+  <title>Dragon Killer 3</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Black+Ops+One&display=swap"
     rel="stylesheet">
+
   <link rel="stylesheet" href="./css/styles.css" />
   <script type="module" src="./js/scripts.js" defer></script>
 </head>
 
 <body>
-  <div class="wrapper">
-    <header>
-      <h1 class="game-title">Dragon Killer 3</h1>
-    </header>
-    <main class="container">
-      <div class="game-over-inscription-container">
-        <img src="" class="game-over-inscription hidden" alt="Game over inscription">
-      </div>
-      <div class="game-characters">
-        <section class="game-character-container">
-          <h2 class="game-character-name">Dragon</h2>
-          <span class="dragon-health">200</span>
-        </section>
-        <section class="game-character-container">
-          <h2 class="game-character-name">Knight</h2>
-          <span class="knight-health">100</span>
-        </section>
-      </div>
-  </div>
 
-  <div class="game-characters-images-container">
-    <div class="game-character-image">
-      <img src="./assets/images/dragon.png" alt="dragon" class="character-image dragon-image" />
-    </div>
-    <div class="game-character-image">
-      <img src="./assets/images/knight.png" alt="knight" class="character-image knight-image" />
-    </div>
-  </div>
-  <div class="wrapper">
-    <div class="game-view">
-      <p class="game-action"></p>
-    </div>
-    <div class="game-controls">
-      <button class="attack-btn">Attack</button>
-      <button class="defend-btn">Defend</button>
-      <button class="heal-btn">Heal</button>
-      <button class="play-again-btn hidden">Play again</button>
-    </div>
-    <div class="game-rules-and-logs">
-      <div class="game-rules-and-logs-controls">
-        <div class="rules-and-logs-container">
-          <button class="rules-btn">Rules</button>
-          <div class="rules">
-            <ul class="dragon-rules">
-              <li class="rule">Dragon will attack you every turn! What are you going to do?</li>
-              <li class="rule">Dragon deals 1 - 20 damage every turn.</li>
-              <li class="rule">Dragon has 33% chance of taking no damage from you.</li>
-            </ul>
-            <ul class="knight-rules">
-              <li class="rule">You deal 1 - 10 damage.</li>
-              <li class="rule">You take no damage, your next attack deals double damage.</li>
-              <li class="rule">You regain 1 - 30 health.</li>
-            </ul>
-          </div>
+  <header class="wrapper">
+    <h1 class="game-title">Dragon Killer 3</h1>
+  </header>
+
+  <main class="game">
+
+    <div class="wrapper">
+      <div class="container">
+        <div class="game-over-inscription-container">
+          <img src="" class="game-over-inscription hidden" alt="Game over inscription">
         </div>
-        <div class="rules-and-logs-container">
-          <button class="logs-btn">Logs</button>
-          <ul class="logs">
-          </ul>
+
+        <div class="game-characters">
+          <section class="game-character-container">
+            <h2 class="game-character-name">Dragon</h2>
+            <span class="dragon-health">200</span>
+          </section>
+          <section class="game-character-container">
+            <h2 class="game-character-name">Knight</h2>
+            <span class="knight-health">100</span>
+          </section>
         </div>
       </div>
     </div>
-  </div>
+    <div class="game-scene">
+      <div class="game-characters-images-container">
+        <div class="game-character-image">
+          <img src="./assets/images/dragon.png" class="character-image dragon-image" alt="dragon">
+        </div>
+        <div class="game-character-image">
+          <img src="./assets/images/knight.png" class="character-image knight-image" alt="knight">
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="game-view">
+        <p class="game-action"></p>
+      </div>
+
+      <div class="game-controls">
+        <button class="attack-btn">Attack</button>
+        <button class="defend-btn">Defend</button>
+        <button class="heal-btn">Heal</button>
+        <button class="play-again-btn hidden">Play again</button>
+      </div>
+
+      <div class="game-rules-and-logs">
+        <div class="game-rules-and-logs-controls">
+
+          <div class="rules-and-logs-container">
+            <button class="rules-btn">Rules</button>
+            <div class="rules">
+              <ul class="dragon-rules">
+                <li class="rule">Dragon will attack you every turn!</li>
+                <li class="rule">Dragon deals 1–20 damage.</li>
+                <li class="rule">33% chance dragon ignores your attack.</li>
+              </ul>
+              <ul class="knight-rules">
+                <li class="rule">You deal 1–10 damage.</li>
+                <li class="rule">Defend doubles next attack.</li>
+                <li class="rule">Heal restores 1–30 HP.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="rules-and-logs-container">
+            <button class="logs-btn">Logs</button>
+            <ul class="logs"></ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
   </main>
-  </div>
-  </div>
+
   <footer>
-    <p class="footer">
-      Copyright &#169; 2025 Agnieska Jackevic. All Rights Reserved.
-    </p>
+    <p class="footer">Copyright © 2025 Agnieska Jackevic</p>
   </footer>
+
 </body>
 
 </html>
