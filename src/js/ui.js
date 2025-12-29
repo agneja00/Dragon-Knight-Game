@@ -47,6 +47,11 @@ export const UI = {
     this.setHidden(UI_GROUPS.playAgain, false);
   },
 
+  setButtonsDisabled(disabled) {
+    UI_GROUPS.controls.forEach((btn) => {
+      btn.disabled = disabled;
+    });
+  },
   renderRules() {
     elements.containers.rules.classList.toggle("active", state.rulesOpen);
   },

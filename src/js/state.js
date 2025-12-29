@@ -7,6 +7,7 @@ export const state = {
   knightHealth: 100,
 
   defendActive: false,
+  isBusy: false,
 
   logs: [],
 
@@ -37,6 +38,7 @@ export const state = {
     this.dragonHealth = this.dragonMaxHealth;
     this.knightHealth = this.knightMaxHealth;
     this.defendActive = false;
+    this.isBusy = false;
     this.logs = [];
     this.rulesOpen = false;
     this.logsOpen = false;
