@@ -31,7 +31,8 @@ export async function playRound(type) {
       break;
     }
     case roundType.defend:
-      log.playerText = `Knight defends.`;
+      state.defendActive = true;
+      log.playerText = `Knight defends and prepares a counter strike.`;
       UI.changeCharacterImg("knight", "defend");
       UI.animateKnight("defend");
       break;
