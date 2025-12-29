@@ -4,6 +4,9 @@ import { state } from "./state.js";
 import playRound from "./playRound.js";
 import startNewGame from "./startNewGame.js";
 import { UI } from "./ui.js";
+import { AudioManager, startMusic } from "./audio.js";
+
+document.addEventListener("click", startMusic, { once: true });
 
 elements.buttons.attack.addEventListener("click", function () {
   playRound(roundType.attack);
@@ -32,4 +35,11 @@ elements.buttons.logs.addEventListener("click", () => {
 
 elements.buttons.playAgain.addEventListener("click", () => {
   startNewGame();
+});
+
+elements.buttons.music.addEventListener("click", () => {
+  AudioManager.toggleMusic();
+  elements.buttons.music.textContent = state.musicEnabled
+    ? "Music On"
+    : "Music Off";
 });

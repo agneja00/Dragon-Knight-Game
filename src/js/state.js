@@ -15,6 +15,9 @@ export const state = {
   logsOpen: false,
   gameOver: false,
 
+  soundEnabled: true,
+  musicEnabled: true,
+
   increaseRound() {
     this.round++;
   },
@@ -43,5 +46,7 @@ export const state = {
     this.rulesOpen = false;
     this.logsOpen = false;
     this.gameOver = false;
+    this.soundEnabled = true;
+    this.musicEnabled = true;
   },
 };

@@ -9,6 +9,7 @@ import {
 import { UI } from "./ui.js";
 import checkIfEndOfGame from "./endGame.js";
 import { delay } from "./utils.js";
+import { AudioManager } from "./audio.js";
 
 export async function playRound(type) {
   if (state.gameOver || state.isBusy) return;
@@ -29,6 +30,7 @@ export async function playRound(type) {
     switch (type) {
       case roundType.attack: {
         const dmg = playerAttack();
+        AudioManager.playSound("attack");
         log.playerText = `Knight attacks and deals ${dmg} to the dragon.`;
         UI.changeCharacterImg("knight", "attack");
         UI.animateKnight("attack");
@@ -37,6 +39,7 @@ export async function playRound(type) {
 
       case roundType.defend: {
         state.defendActive = true;
+        AudioManager.playSound("defend");
         log.playerText = `Knight defends and prepares a counter strike.`;
         UI.changeCharacterImg("knight", "defend");
         UI.animateKnight("defend");
@@ -45,6 +48,7 @@ export async function playRound(type) {
 
       case roundType.heal: {
         const heal = playerHeal();
+        AudioManager.playSound("heal");
         log.playerText = `Knight heals himself and receives ${heal} health.`;
         UI.changeCharacterImg("knight", "heal");
         break;
@@ -65,6 +69,7 @@ export async function playRound(type) {
 
     const dmg = dragonAttack();
     log.dragonText = `Dragon attacks and deals ${dmg} to the knight.`;
+    AudioManager.playSound("fire");
 
     UI.changeCharacterImg("dragon", "attack");
     UI.updateHealth();

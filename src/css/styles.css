@@ -190,6 +190,27 @@ body {
   background-color: #3c4a52;
 }
 
+.game-music-control {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.7rem;
+}
+
+.music-toggle-btn {
+  font-family: "Black Ops One", sans-serif;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  border: none;
+  cursor: pointer;
+  background-color: #444b52;
+  color: #fff;
+}
+
+.music-toggle-btn:hover {
+  background-color: #5c6570;
+}
+
+
 .game-rules-and-logs-controls {
   display: flex;
   gap: 1rem;

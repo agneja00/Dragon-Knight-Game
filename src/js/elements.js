@@ -8,6 +8,7 @@ export const elements = {
     defend: document.querySelector(".defend-btn"),
     heal: document.querySelector(".heal-btn"),
     playAgain: document.querySelector(".play-again-btn"),
+    music: document.querySelector(".music-toggle-btn"),
     rules: document.querySelector(".rules-btn"),
     logs: document.querySelector(".logs-btn"),
   },
