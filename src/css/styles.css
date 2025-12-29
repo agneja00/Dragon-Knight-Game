@@ -15,8 +15,18 @@ body {
   flex-direction: column;
   font-family: "Cinzel", serif;
   color: #b0b0b0;
+  background: none;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
   background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)),
-    url("../assets/images/background.jpg") 1% 50% / cover no-repeat fixed;
+    url("../assets/images/background.jpg") 1% 50% / cover no-repeat;
 }
 
 .wrapper {
@@ -209,7 +219,6 @@ body {
 .music-toggle-btn:hover {
   background-color: #5c6570;
 }
-
 
 .game-rules-and-logs-controls {
   display: flex;
