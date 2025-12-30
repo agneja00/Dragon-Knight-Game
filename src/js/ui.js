@@ -11,10 +11,6 @@ const imageTimers = {
   dragon: null,
 };
 
-const charactersContainer = document.querySelector(
-  ".game-characters-images-container"
-);
-
 const UI_GROUPS = {
   controls: [
     elements.buttons.attack,
