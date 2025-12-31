@@ -17,6 +17,7 @@ export const state = {
 
   soundEnabled: true,
   musicEnabled: true,
+  endGameTimeout: null,
 
   increaseRound() {
     this.round++;
@@ -37,6 +38,10 @@ export const state = {
   },
 
   reset() {
+    if (this.endGameTimeout !== null) {
+      clearTimeout(this.endGameTimeout);
+      this.endGameTimeout = null;
+    }
     this.round = 0;
     this.dragonHealth = this.dragonMaxHealth;
     this.knightHealth = this.knightMaxHealth;

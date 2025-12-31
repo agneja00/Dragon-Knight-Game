@@ -25,13 +25,11 @@ function endGame(result) {
     UI.showDragonDead();
   }
 
-  setTimeout(() => {
+  state.endGameTimeout = setTimeout(() => {
+    if (!state.gameOver) return;
+
     UI.enterGameOverMode();
-    if (result === "defeat") {
-      UI.showDefeat();
-    } else {
-      UI.showVictory();
-    }
+    result === "defeat" ? UI.showDefeat() : UI.showVictory();
   }, 4000);
 }
 
