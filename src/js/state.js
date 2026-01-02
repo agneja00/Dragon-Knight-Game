@@ -1,9 +1,9 @@
 export const state = {
   round: 0,
 
-  dragonMaxHealth: 200,
+  dragonMaxHealth: 20,
   knightMaxHealth: 100,
-  dragonHealth: 200,
+  dragonHealth: 20,
   knightHealth: 100,
 
   defendActive: false,
@@ -52,6 +52,6 @@ export const state = {
     this.logsOpen = false;
     this.gameOver = false;
     this.soundEnabled = true;
-    this.musicEnabled = true;
+    this.musicEnabled = false;
   },
 };
