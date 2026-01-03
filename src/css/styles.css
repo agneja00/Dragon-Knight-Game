@@ -38,7 +38,7 @@ body::before {
   text-align: center;
   padding: 2.5rem 0;
   color: #f2f2f2;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85);
+  text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.85);
 }
 
 .container {
@@ -50,7 +50,7 @@ body::before {
 }
 
 .game-over-inscription {
-  width: clamp(280px, 60vw, 600px);
+  width: clamp(17.5rem, 60vw, 37.5rem);
   height: auto;
   display: block;
   margin: 0 auto;
@@ -85,7 +85,7 @@ body::before {
 .game-character-name {
   font-size: 0.9rem;
   color: #f0f0f0;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 0.063rem 0.188rem rgba(0, 0, 0, 0.8);
 }
 
 .dragon-health,
@@ -325,7 +325,7 @@ footer {
   font-size: 0.8rem;
   margin-top: auto;
   color: #e0e0e0;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 0.063rem 0.188rem rgba(0, 0, 0, 0.8);
 }
 
 @media only screen and (min-width: 715px) {
