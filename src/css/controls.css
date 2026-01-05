@@ -1,0 +1,77 @@
+.game-controls > button,
+.rules-and-logs-container > button {
+  font-family: "Black Ops One", sans-serif;
+  padding: 0.7rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.game-controls > button {
+  color: #ffffff;
+  width: 33%;
+  border: none;
+}
+
+.attack-btn {
+  background-color: #8e1b1b;
+}
+
+.attack-btn:hover {
+  background-color: #b32626;
+}
+
+.defend-btn,
+.play-again-btn {
+  background-color: #274c77;
+}
+
+.defend-btn:hover,
+.play-again-btn {
+  background-color: #356aa0;
+}
+
+.heal-btn {
+  background-color: #2f3a40;
+}
+
+.heal-btn:hover {
+  background-color: #3c4a52;
+}
+
+.game-music-control {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.7rem;
+}
+
+.music-toggle-btn {
+  font-family: "Black Ops One", sans-serif;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  border: none;
+  cursor: pointer;
+  background-color: #444b52;
+  color: #fff;
+}
+
+.music-toggle-btn:hover {
+  background-color: #5c6570;
+}
+
+.game-rules-and-logs-controls {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.rules-btn,
+.logs-btn {
+  color: #ffffff;
+  background-color: #0f1412;
+  border: 1px solid #444b52;
+}
+
+.rules-btn:hover,
+.logs-btn:hover {
+  background-color: #272a29;
+}

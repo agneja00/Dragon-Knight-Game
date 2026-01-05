@@ -1,0 +1,41 @@
+.game-title {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  text-align: center;
+  padding: 2.5rem 0;
+  color: #f2f2f2;
+  text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.85);
+}
+
+.game-character-name {
+  font-size: 0.9rem;
+  color: #f0f0f0;
+  text-shadow: 0 0.063rem 0.188rem rgba(0, 0, 0, 0.8);
+}
+
+.game-action {
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+.round-title {
+  padding-bottom: 0.2rem;
+}
+
+.rule,
+.log {
+  font-size: 0.8rem;
+  padding-bottom: 1rem;
+}
+
+.rule,
+.log,
+.footer {
+  color: #cfcfcf;
+}
+
+.footer {
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 2rem 2rem 1.5rem 2rem;
+}

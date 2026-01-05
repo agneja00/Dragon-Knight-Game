@@ -1,0 +1,30 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Cinzel", serif;
+  color: #d8d8d8;
+  background: none;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)),
+    url("../assets/images/background.jpg") 1% 50% / cover no-repeat;
+}
+
+.wrapper {
+  padding: 0 2rem;
+}
+
+footer {
+  font-size: 0.8rem;
+  margin-top: auto;
+  color: #e0e0e0;
+  text-shadow: 0 0.063rem 0.188rem rgba(0, 0, 0, 0.8);
+}

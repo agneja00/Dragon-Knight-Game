@@ -1,0 +1,69 @@
+@media only screen and (min-width: 715px) {
+  .game-title {
+    padding: 2rem 0 1.3rem 0;
+  }
+
+  .game-characters {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 2rem;
+  }
+
+  .game-character-image {
+    width: 35%;
+  }
+
+  .knight-image {
+    transform: translateX(5%);
+  }
+
+  .knight-image.knight-attack,
+  .knight-image.knight-defend {
+    transform: translateX(-70%);
+  }
+
+  .player-and-dragon-log-container {
+    gap: 0.5rem;
+  }
+
+  .game-characters-images-container.game-over-mode .game-character-image {
+    margin-top: -10rem;
+    margin-bottom: -5rem;
+  }
+
+  .game-action {
+    font-size: 1.2rem;
+  }
+
+  .rule,
+  .log {
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .game-character-image {
+    width: 21%;
+  }
+
+  .game-characters-images-container.game-over-mode .game-character-image {
+    margin-top: -12rem;
+  }
+
+  .knight-image.knight-attack,
+  .knight-image.knight-defend {
+    transform: translateX(-190%);
+  }
+
+  .dragon-rules,
+  .knight-rules,
+  .logs {
+    padding: 1.4rem 2.2rem 0.9rem 2.2rem;
+  }
+
+  .rule,
+  .log {
+    font-size: 1rem;
+  }
+}
