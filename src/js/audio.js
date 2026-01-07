@@ -2,8 +2,8 @@ import { state } from "./state.js";
 
 const soundFiles = {
   attack: "./assets/sounds/knight_attack.mp3",
-  defend: "./assets/sounds/knight_defend.mp3",
-  heal: "./assets/sounds/knight_heal.mp3",
+  defend: "./assets/sounds/knight_defend.wav",
+  heal: "./assets/sounds/knight_heal.wav",
   fire: "./assets/sounds/dragon_attack.mp3",
 };
 
