@@ -1,9 +1,9 @@
 export const state = {
   round: 0,
 
-  dragonMaxHealth: 20,
+  dragonMaxHealth: 200,
   knightMaxHealth: 100,
-  dragonHealth: 20,
+  dragonHealth: 200,
   knightHealth: 100,
 
   defendActive: false,
