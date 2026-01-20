@@ -2,8 +2,8 @@ import { elements } from "./elements.js";
 import { state } from "./state.js";
 
 const defaultImages = {
-  knight: "./assets/images/knight.png",
-  dragon: "./assets/images/dragon.png",
+  knight: "./assets/images/knight.webp",
+  dragon: "./assets/images/dragon.webp",
 };
 
 const imageTimers = {
@@ -107,7 +107,7 @@ export const UI = {
     if (!img) return;
 
     clearTimeout(imageTimers[character]);
-    img.src = `./assets/images/${character}_${action}.png`;
+    img.src = `./assets/images/${character}_${action}.webp`;
 
     if (action === "dead") return;
 
@@ -127,7 +127,7 @@ export const UI = {
 
   hideCharacter(character) {
     const container = elements.images[character].closest(
-      ".game-character-image"
+      ".game-character-image",
     );
     if (container) container.classList.add("hidden");
   },
@@ -146,14 +146,14 @@ export const UI = {
     this.hideCharacter("knight");
     this.setHidden(UI_GROUPS.health, true);
     this.setHidden(UI_GROUPS.inscription, false);
-    elements.images.inscription.src = "./assets/images/victory.png";
+    elements.images.inscription.src = "./assets/images/victory.webp";
   },
 
   showDefeat() {
     this.hideCharacter("dragon");
     this.setHidden(UI_GROUPS.health, true);
     this.setHidden(UI_GROUPS.inscription, false);
-    elements.images.inscription.src = "./assets/images/defeat.png";
+    elements.images.inscription.src = "./assets/images/defeat.webp";
   },
 
   hideResult() {
@@ -165,13 +165,13 @@ export const UI = {
 
   enterGameOverMode() {
     elements.containers.charactersImagesContainer.classList.add(
-      "game-over-mode"
+      "game-over-mode",
     );
   },
 
   exitGameOverMode() {
     elements.containers.charactersImagesContainer.classList.remove(
-      "game-over-mode"
+      "game-over-mode",
     );
   },
 
