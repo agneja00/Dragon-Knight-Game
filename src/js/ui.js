@@ -78,17 +78,27 @@ export const UI = {
 
     if (percent === 0) {
       healthEl.style.background = "none";
-    } else if (
-      character === "dragon" &&
-      state.dragonHealth === state.dragonMaxHealth
-    ) {
-      healthEl.style.background = "linear-gradient(90deg, #6f1414, #a61f1f)";
-    } else if (
-      character === "knight" &&
-      state.knightHealth === state.knightMaxHealth
-    ) {
-      healthEl.style.background = "linear-gradient(90deg, #1f3b5c, #2e5f99)";
+      return;
     }
+
+    const colors = {
+      dragon: {
+        high: ["#6f1414", "#a61f1f"],
+        medium: ["#7a3a00", "#b85500"],
+        low: ["#5a0a0a", "#ff2020"],
+      },
+      knight: {
+        high: ["#1f3b5c", "#2e5f99"],
+        medium: ["#1f4a2e", "#2e8a50"],
+        low: ["#4a3a00", "#ccaa00"],
+      },
+    };
+
+    const palette = colors[character];
+    const level = percent > 60 ? "high" : percent > 30 ? "medium" : "low";
+    const [from, to] = palette[level];
+
+    healthEl.style.background = `linear-gradient(90deg, ${from}, ${to})`;
   },
 
   updateHealth() {
