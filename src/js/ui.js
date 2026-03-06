@@ -48,6 +48,18 @@ export const UI = {
       btn.disabled = disabled;
     });
   },
+
+  setTurnIndicator(isPlayerTurn) {
+    if (!elements.containers.characterIndicator) return;
+    if (isPlayerTurn) {
+      elements.containers.characterIndicator.textContent = "⚔️ Your turn";
+      elements.containers.characterIndicator.classList.remove("dragon-turn");
+    } else {
+      elements.containers.characterIndicator.textContent = "🐉 Dragon's turn";
+      elements.containers.characterIndicator.classList.add("dragon-turn");
+    }
+  },
+
   renderRules() {
     elements.containers.rules.classList.toggle("active", state.rulesOpen);
   },

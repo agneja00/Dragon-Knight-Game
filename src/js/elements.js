@@ -20,9 +20,10 @@ export const elements = {
   containers: {
     charactersHealthContainer: document.querySelector(".game-characters"),
     charactersImagesContainer: document.querySelector(
-      ".game-characters-images-container"
+      ".game-characters-images-container",
     ),
     gameAction: document.querySelector(".game-action"),
+    characterIndicator: document.querySelector(".turn-indicator"),
     rules: document.querySelector(".rules"),
     logs: document.querySelector(".logs"),
     controls: document.querySelector(".game-controls"),

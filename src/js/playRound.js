@@ -16,6 +16,7 @@ export async function playRound(type) {
 
   state.isBusy = true;
   UI.setButtonsDisabled(true);
+  UI.setTurnIndicator(true);
 
   try {
     state.increaseRound();
@@ -65,6 +66,7 @@ export async function playRound(type) {
       return;
     }
 
+    UI.setTurnIndicator(false);
     await delay(3000);
 
     const dmg = dragonAttack();
@@ -85,6 +87,7 @@ export async function playRound(type) {
     state.logs.push(log);
     UI.writeLog(log);
     clearActiveLogLater();
+    UI.setTurnIndicator(true);
   } finally {
     state.isBusy = false;
     UI.setButtonsDisabled(false);

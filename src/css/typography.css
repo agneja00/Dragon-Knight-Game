@@ -12,6 +12,19 @@
   text-shadow: 0 0.063rem 0.188rem rgba(0, 0, 0, 0.8);
 }
 
+.turn-indicator {
+  text-align: center;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  color: #f2f2f2;
+  margin-bottom: 0.5rem;
+  transition: opacity 0.3s ease;
+}
+
+.turn-indicator.dragon-turn {
+  color: #ff6b6b;
+}
+
 .game-action {
   font-size: 0.9rem;
   text-align: center;
