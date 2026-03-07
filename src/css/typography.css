@@ -7,14 +7,14 @@
 }
 
 .game-character-name {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   color: #f0f0f0;
   text-shadow: 0 0.063rem 0.188rem rgba(0, 0, 0, 0.8);
 }
 
 .turn-indicator {
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.9rem;
   letter-spacing: 0.1em;
   color: #f2f2f2;
   margin-bottom: 0.5rem;
