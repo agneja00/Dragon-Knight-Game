@@ -50,13 +50,14 @@ export const UI = {
   },
 
   setTurnIndicator(isPlayerTurn) {
-    if (!elements.containers.characterIndicator) return;
+    const indicator = elements.containers.characterIndicator;
+    if (!indicator) return;
     if (isPlayerTurn) {
-      elements.containers.characterIndicator.textContent = "⚔️ Your turn";
-      elements.containers.characterIndicator.classList.remove("dragon-turn");
+      indicator.textContent = "⚔️ Your turn";
+      indicator.classList.remove("dragon-turn");
     } else {
-      elements.containers.characterIndicator.textContent = "🐉 Dragon's turn";
-      elements.containers.characterIndicator.classList.add("dragon-turn");
+      indicator.textContent = "🐉 Dragon's turn";
+      indicator.classList.add("dragon-turn");
     }
   },
 
