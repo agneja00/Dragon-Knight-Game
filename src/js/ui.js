@@ -36,6 +36,7 @@ export const UI = {
     this.showCharacter("knight");
     this.showCharacter("dragon");
     this.renderAllLogs();
+    this.setTurnIndicator(true);
   },
 
   setGameOverState() {
@@ -52,6 +53,13 @@ export const UI = {
   setTurnIndicator(isPlayerTurn) {
     const indicator = elements.containers.characterIndicator;
     if (!indicator) return;
+
+    if (isPlayerTurn === null) {
+      indicator.classList.add("hidden");
+      return;
+    }
+
+    indicator.classList.remove("hidden");
     if (isPlayerTurn) {
       indicator.textContent = "⚔️ Your turn";
       indicator.classList.remove("dragon-turn");

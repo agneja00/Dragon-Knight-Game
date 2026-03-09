@@ -18,6 +18,7 @@ export function checkIfEndOfGame() {
 function endGame(result) {
   state.gameOver = true;
   UI.setGameOverState();
+  UI.setTurnIndicator(null);
 
   if (result === "defeat") {
     UI.showKnightDead();
